@@ -5,8 +5,11 @@
 	import LogoSlot from '$lib/components/logo-slot.svelte';
 	import TechIcon, { hasTechIcon } from '$lib/components/tech-icon.svelte';
 	import ArchPatterns from '$lib/components/arch-patterns.svelte';
+	import LottiePulse from '$lib/components/lottie-pulse.svelte';
+	import ContactIcon from '$lib/components/contact-icon.svelte';
 	import { reveal } from '$lib/actions/reveal';
 
+	import mePhoto from '$lib/assets/about/me-web.jpg';
 	import monarchLogo from '$lib/assets/experice/monarch/Monarch-Inti-Teknologi-250X60-1.png';
 	import mit1 from '$lib/assets/experice/monarch/mit1-web.jpg';
 	import mit2 from '$lib/assets/experice/monarch/mit2-web.jpg';
@@ -140,57 +143,48 @@
 </svelte:head>
 
 <main class="mx-auto max-w-5xl px-5 sm:px-8">
-	<!-- HERO -->
+	<!-- HERO + ABOUT -->
 	<section class="pt-16 pb-14 sm:pt-24 sm:pb-20">
-		<div class="mb-8 flex items-center gap-2 font-mono text-[11px] text-text-muted uppercase">
-			<span class="h-1.5 w-1.5 rounded-full bg-accent shadow-(--shadow-glow)"></span>
-			available for backend roles · west jakarta, id (utc+7)
+		<div class="grid grid-cols-1 gap-8 sm:grid-cols-[1fr_auto] sm:items-start sm:gap-12">
+			<div class="sm:order-1">
+				<div class="mb-8 flex items-center gap-2 font-mono text-[11px] text-text-muted uppercase">
+					<span class="h-1.5 w-1.5 rounded-full bg-accent shadow-(--shadow-glow)"></span>
+					available for backend roles · west jakarta, id (utc+7)
+				</div>
+
+				<p
+					class="mb-4 inline-block rounded-none bg-accent px-3 py-1 font-mono text-xs font-semibold text-void uppercase"
+				>
+					backend engineer — payment infrastructure
+				</p>
+
+				<h1
+					class="mb-6 font-display text-4xl leading-[1.05] font-bold text-text-primary sm:text-6xl"
+				>
+					Muhammad Jamaludin Nur
+				</h1>
+
+				<p class="mb-4 max-w-2xl text-lg text-text-primary sm:text-xl">
+					I build the routing layer between merchants and payment providers — the layer that isn't
+					allowed to drop a transaction.
+				</p>
+
+				<p class="max-w-2xl text-sm leading-relaxed text-text-muted sm:text-base">
+					I work on the parts of a payment system that aren't allowed to fail quietly: transaction
+					routing, retries, idempotency, audit trails. At Monarch Inti Teknologi I'm building the
+					aggregator that lets one merchant integration reach six payment providers, with automatic
+					failover when one goes down. Before that, at Firstudio, I shipped a citizen management
+					system that now serves 24,000+ residents across departments.
+				</p>
+			</div>
+
+			<img
+				src={mePhoto}
+				alt="Muhammad Jamaludin Nur"
+				class="h-56 w-44 object-cover sm:order-2 sm:h-64 sm:w-52"
+				style="object-position: 50% 22%; -webkit-mask-image: linear-gradient(to right, transparent, black 22%, black 78%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, black 22%, black 78%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); mask-composite: intersect;"
+			/>
 		</div>
-
-		<p
-			class="mb-4 inline-block rounded-none bg-accent px-3 py-1 font-mono text-xs font-semibold text-void uppercase"
-		>
-			backend engineer — payment infrastructure
-		</p>
-
-		<h1 class="mb-6 font-display text-4xl leading-[1.05] font-bold text-text-primary sm:text-6xl">
-			Muhammad Jamaludin Nur
-		</h1>
-
-		<p class="mb-3 max-w-2xl text-lg text-text-primary sm:text-xl">
-			I build the routing layer between merchants and payment providers — the layer that isn't
-			allowed to drop a transaction.
-		</p>
-
-		<p class="mb-8 max-w-2xl text-sm text-text-muted sm:text-base">
-			Currently at Monarch Inti Teknologi, building a merchant aggregator that keeps payments
-			flowing across six providers even when one of them goes down.
-		</p>
-
-		<div class="mb-12 flex flex-wrap gap-4">
-			<Button href="mailto:mjamaludinnur927@gmail.com">Email me</Button>
-			<Button variant="outline" href="https://github.com/koriebruh" target="_blank" rel="noreferrer"
-				>GitHub</Button
-			>
-			<Button
-				variant="outline"
-				href="https://www.linkedin.com/in/mjamaludinnur/"
-				target="_blank"
-				rel="noreferrer">LinkedIn</Button
-			>
-		</div>
-	</section>
-
-	<!-- ABOUT -->
-	<section use:reveal class="reveal max-w-2xl py-16 sm:py-20">
-		<h2 class="mb-5 font-mono text-xs text-text-faint uppercase">about</h2>
-		<p class="text-lg leading-relaxed text-text-primary sm:text-xl">
-			I work on the parts of a payment system that aren't allowed to fail quietly: transaction
-			routing, retries, idempotency, audit trails. At Monarch Inti Teknologi I'm building the
-			aggregator that lets one merchant integration reach six payment providers, with automatic
-			failover when one goes down. Before that, at Firstudio, I shipped a citizen management system
-			that now serves 24,000+ residents across departments.
-		</p>
 	</section>
 
 	<!-- EXPERIENCE -->
@@ -210,13 +204,15 @@
 							<p class="font-mono text-xs text-text-faint">{job.period}</p>
 						</div>
 						<div>
-							<div class="mb-1 flex items-center gap-3">
+							<div class="mb-4 flex items-center gap-4 border-b border-white/10 pb-4">
 								<LogoSlot name={job.org} src={job.logo} onDark={job.logoOnDark} />
-								<h3 class="text-base font-medium text-text-primary sm:text-lg">
-									{job.role} <span class="text-text-muted">· {job.org}</span>
-								</h3>
+								<div class="min-w-0">
+									<h3 class="text-base font-semibold text-text-primary sm:text-lg">
+										{job.role}
+									</h3>
+									<p class="text-sm text-text-muted">{job.org} · {job.place}</p>
+								</div>
 							</div>
-							<p class="mb-3 text-xs text-text-faint">{job.place}</p>
 							<ul class="space-y-2">
 								{#each job.points as point (point)}
 									<li class="flex gap-2 text-sm text-text-muted sm:text-base">
@@ -250,10 +246,12 @@
 					href={project.href}
 					target="_blank"
 					rel="noreferrer"
-					class="glass reveal group flex flex-col rounded-none p-6 transition-colors hover:border-accent/40"
+					class="reveal group flex flex-col border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-accent/40"
 					style="transition-delay: {i * 80}ms"
 				>
-					<h3 class="mb-3 text-lg font-medium text-text-primary">{project.name}</h3>
+					<h3 class="mb-4 border-b border-white/10 pb-4 text-lg font-semibold text-text-primary">
+						{project.name}
+					</h3>
 					<div class="mb-4 flex flex-wrap gap-1.5">
 						{#each project.stack as tech (tech)}
 							{#if hasTechIcon(tech)}
@@ -286,19 +284,35 @@
 		</div>
 	</section>
 
+	<!-- EDUCATION -->
+	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
+		<h2 class="mb-6 font-mono text-xs text-text-faint uppercase">education</h2>
+		<div class="mb-4 flex items-center gap-4 border-b border-white/10 pb-4">
+			<LogoSlot name="UDINUS" src={udinusLogo} />
+			<div class="min-w-0">
+				<h3 class="text-base font-semibold text-text-primary sm:text-lg">
+					B.Sc. Informatics Engineering
+				</h3>
+				<p class="text-sm text-text-muted">
+					Universitas Dian Nuswantoro (UDINUS) · Semarang · 2022 — Feb 2026
+				</p>
+			</div>
+		</div>
+		<p class="mb-4 font-mono text-xs text-text-faint">
+			GPA 3.65 / 4.00 · 146 credits · 0 failing grades across 54 courses
+		</p>
+		<ImagePlaceholder label="campus photo" layout="row" images={[edu1, edu2, edu3]} />
+	</section>
+
 	<!-- RESEARCH -->
 	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
 		<h2 class="mb-6 font-mono text-xs text-text-faint uppercase">research &amp; publication</h2>
 
-		<div class="glass mb-6 flex flex-col gap-4 rounded-none p-6 sm:flex-row sm:items-center">
+		<div class="mb-6 flex items-center gap-4 border-b border-white/10 pb-4">
 			<LogoSlot name="ISEMANTIC 2025" src={isemanticLogo} onDark />
-			<div>
-				<Badge variant="paper" class="mb-2">best paper award</Badge>
-				<p class="text-text-primary">
-					First author, peer-reviewed paper on customer churn prediction (CatBoost + domain feature
-					engineering) — awarded Best Paper at IEEE Xplore, ISEMANTIC 2025.
-				</p>
-				<p class="mt-1 text-xs text-text-faint">December 2025</p>
+			<div class="min-w-0">
+				<h3 class="text-base font-semibold text-text-primary sm:text-lg">Best Paper Award</h3>
+				<p class="text-sm text-text-muted">IEEE Xplore · ISEMANTIC 2025 · December 2025</p>
 			</div>
 		</div>
 
@@ -388,51 +402,64 @@
 		{/if}
 	</section>
 
-	<!-- EDUCATION -->
-	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
-		<h2 class="mb-6 font-mono text-xs text-text-faint uppercase">education</h2>
-		<div class="mb-1 flex items-center gap-3">
-			<LogoSlot name="UDINUS" src={udinusLogo} />
-			<h3 class="text-base text-text-primary sm:text-lg">B.Sc. Informatics Engineering</h3>
-		</div>
-		<p class="mb-3 text-sm text-text-muted">
-			Universitas Dian Nuswantoro (UDINUS) · Semarang · 2022 — Feb 2026
-		</p>
-		<p class="mb-4 font-mono text-xs text-text-faint">
-			GPA 3.65 / 4.00 · 146 credits · 0 failing grades across 54 courses
-		</p>
-		<ImagePlaceholder label="campus photo" layout="row" images={[edu1, edu2, edu3]} />
-	</section>
-
 	<!-- CONTACT / FOOTER -->
 	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
+		<div class="mb-8 flex items-center gap-3">
+			<LottiePulse />
+			<p class="font-mono text-xs tracking-wide text-accent uppercase">available for new roles</p>
+		</div>
+
 		<h2 class="mb-4 font-display text-2xl font-bold text-text-primary sm:text-3xl">
 			Open to <span class="text-accent">backend roles</span>.
 		</h2>
-		<p class="mb-8 max-w-lg text-text-muted">
+		<p class="mb-10 max-w-lg text-text-muted">
 			If you're hiring for payment infrastructure, distributed systems, or backend work in general —
 			reach out directly.
 		</p>
-		<div class="mb-10 flex flex-wrap gap-4">
-			<Button href="mailto:mjamaludinnur927@gmail.com">mjamaludinnur927@gmail.com</Button>
-			<Button variant="outline" href="https://wa.me/628818653880" target="_blank" rel="noreferrer"
-				>WhatsApp</Button
+
+		<div class="flex flex-wrap items-center gap-3 border-t border-white/10 pt-6">
+			<a
+				href="mailto:mjamaludinnur927@gmail.com"
+				title="Email"
+				class="inline-flex h-12 w-12 items-center justify-center border border-white/10 transition-colors hover:border-accent/40"
 			>
-			<Button variant="outline" href="https://github.com/koriebruh" target="_blank" rel="noreferrer"
-				>GitHub</Button
+				<ContactIcon name="email" />
+			</a>
+			<a
+				href="https://wa.me/628818653880"
+				target="_blank"
+				rel="noreferrer"
+				title="WhatsApp"
+				class="inline-flex h-12 w-12 items-center justify-center border border-white/10 transition-colors hover:border-accent/40"
 			>
-			<Button
-				variant="outline"
+				<ContactIcon name="whatsapp" />
+			</a>
+			<a
+				href="https://github.com/koriebruh"
+				target="_blank"
+				rel="noreferrer"
+				title="GitHub"
+				class="inline-flex h-12 w-12 items-center justify-center border border-white/10 transition-colors hover:border-accent/40"
+			>
+				<ContactIcon name="github" />
+			</a>
+			<a
 				href="https://www.linkedin.com/in/mjamaludinnur/"
 				target="_blank"
-				rel="noreferrer">LinkedIn</Button
+				rel="noreferrer"
+				title="LinkedIn"
+				class="inline-flex h-12 w-12 items-center justify-center border border-white/10 transition-colors hover:border-accent/40"
 			>
+				<ContactIcon name="linkedin" />
+			</a>
+			<Button href={cvPdf} download="Muhammad Jamaludin Nur - CV.pdf"
+				>Download portfolio (PDF)</Button
+			>
+			<p class="ml-auto font-mono text-xs text-text-faint">west jakarta, indonesia — utc+7</p>
 		</div>
-		<Button href={cvPdf} download="Muhammad Jamaludin Nur - CV.pdf" class="mb-10"
-			>Download portfolio (PDF)</Button
-		>
-		<p class="border-t border-white/10 pt-6 font-mono text-xs text-text-faint">
-			west jakarta, indonesia — utc+7
+
+		<p class="mt-6 font-mono text-xs text-text-faint">
+			© {new Date().getFullYear()} Muhammad Jamaludin Nur. All rights reserved.
 		</p>
 	</section>
 </main>
