@@ -64,6 +64,7 @@
 				"Took two divisions' event registration, donation tracking, and public info pages fully online within two months."
 			],
 			logo: pwmjatengLogo,
+			logoOnDark: true,
 			images: []
 		},
 		{
@@ -236,6 +237,92 @@
 		</div>
 	</section>
 
+	<!-- EDUCATION & RESEARCH -->
+	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
+		<h2 class="mb-10 font-mono text-xs text-text-faint uppercase">education &amp; research</h2>
+		<div class="relative space-y-12">
+			<div
+				class="absolute top-2 bottom-2 -left-4 hidden w-px bg-[repeating-linear-gradient(to_bottom,var(--color-accent)_0,var(--color-accent)_4px,transparent_4px,transparent_10px)] opacity-40 sm:block"
+			></div>
+
+			<!-- Education -->
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-[10rem_1fr]">
+				<div class="relative">
+					<span
+						class="absolute top-1 -left-4 hidden h-2 w-2 -translate-x-1/2 rounded-full border-2 border-void bg-accent sm:block"
+					></span>
+					<p class="font-mono text-xs text-text-faint">2022 — Feb 2026</p>
+				</div>
+				<div>
+					<div class="mb-4 flex items-center gap-4 border-b border-white/10 pb-4">
+						<LogoSlot name="UDINUS" src={udinusLogo} />
+						<div class="min-w-0">
+							<h3 class="text-base font-semibold text-text-primary sm:text-lg">
+								B.Sc. Informatics Engineering
+							</h3>
+							<p class="text-sm text-text-muted">Universitas Dian Nuswantoro (UDINUS) · Semarang</p>
+						</div>
+					</div>
+					<p class="mb-4 font-mono text-xs text-text-faint">
+						GPA 3.65 / 4.00 · 146 credits · 0 failing grades across 54 courses
+					</p>
+					<ImagePlaceholder label="campus photo" layout="row" images={[edu1, edu2, edu3]} />
+				</div>
+			</div>
+
+			<!-- Research, published during the degree above -->
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-[10rem_1fr]">
+				<div class="relative">
+					<span
+						class="absolute top-1 -left-4 hidden h-2 w-2 -translate-x-1/2 rounded-full border-2 border-void bg-accent sm:block"
+					></span>
+					<p class="font-mono text-xs text-text-faint">December 2025</p>
+				</div>
+				<div>
+					<div class="mb-6 flex items-center gap-4 border-b border-white/10 pb-4">
+						<LogoSlot name="ISEMANTIC 2025" src={isemanticLogo} onDark />
+						<div class="min-w-0">
+							<h3 class="text-base font-semibold text-text-primary sm:text-lg">Best Paper Award</h3>
+							<p class="text-sm text-text-muted">IEEE Xplore · ISEMANTIC 2025</p>
+						</div>
+					</div>
+
+					<div class="grid gap-8 sm:grid-cols-2">
+						<ImagePlaceholder label="conference photos" images={[con1, con2, con3]} />
+
+						<div>
+							<h3 class="mb-2 text-base font-medium text-text-primary sm:text-lg">
+								Improving Customer Churn Prediction Using Domain-Driven Feature Engineering,
+								Resampling, and CatBoost with Explainability Extensions
+							</h3>
+							<p class="mb-4 text-sm text-text-muted">
+								An end-to-end churn prediction pipeline on the IBM Telco Customer Churn dataset
+								(7,043 samples, 26.54% churn): SMOTE for class imbalance, domain-specific engineered
+								features, and CatBoost/XGBoost tuned with Optuna. The best model reached a <span
+									class="text-accent">0.937 ROC-AUC</span
+								> and 0.863 F1-score. SHAP explains which features drive each prediction, DICE-ML generates
+								counterfactual "what would change the outcome" explanations for retention teams, and a
+								fairness audit surfaced a 22.55% bias toward senior citizens worth correcting for.
+							</p>
+							<div class="flex flex-wrap gap-3">
+								<Button variant="outline" size="sm" href={paperPdf} target="_blank" rel="noreferrer"
+									>Read the paper (PDF)</Button
+								>
+								<Button
+									variant="outline"
+									size="sm"
+									href="https://ieeexplore.ieee.org/document/11291801/"
+									target="_blank"
+									rel="noreferrer">View on IEEE Xplore ↗</Button
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- FEATURED PROJECTS -->
 	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
 		<h2 class="mb-10 font-mono text-xs text-text-faint uppercase">featured projects</h2>
@@ -281,72 +368,6 @@
 					>
 				</a>
 			{/each}
-		</div>
-	</section>
-
-	<!-- EDUCATION -->
-	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
-		<h2 class="mb-6 font-mono text-xs text-text-faint uppercase">education</h2>
-		<div class="mb-4 flex items-center gap-4 border-b border-white/10 pb-4">
-			<LogoSlot name="UDINUS" src={udinusLogo} />
-			<div class="min-w-0">
-				<h3 class="text-base font-semibold text-text-primary sm:text-lg">
-					B.Sc. Informatics Engineering
-				</h3>
-				<p class="text-sm text-text-muted">
-					Universitas Dian Nuswantoro (UDINUS) · Semarang · 2022 — Feb 2026
-				</p>
-			</div>
-		</div>
-		<p class="mb-4 font-mono text-xs text-text-faint">
-			GPA 3.65 / 4.00 · 146 credits · 0 failing grades across 54 courses
-		</p>
-		<ImagePlaceholder label="campus photo" layout="row" images={[edu1, edu2, edu3]} />
-	</section>
-
-	<!-- RESEARCH -->
-	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
-		<h2 class="mb-6 font-mono text-xs text-text-faint uppercase">research &amp; publication</h2>
-
-		<div class="mb-6 flex items-center gap-4 border-b border-white/10 pb-4">
-			<LogoSlot name="ISEMANTIC 2025" src={isemanticLogo} onDark />
-			<div class="min-w-0">
-				<h3 class="text-base font-semibold text-text-primary sm:text-lg">Best Paper Award</h3>
-				<p class="text-sm text-text-muted">IEEE Xplore · ISEMANTIC 2025 · December 2025</p>
-			</div>
-		</div>
-
-		<div class="grid gap-8 sm:grid-cols-2">
-			<ImagePlaceholder label="conference photos" images={[con1, con2, con3]} />
-
-			<div>
-				<h3 class="mb-2 text-base font-medium text-text-primary sm:text-lg">
-					Improving Customer Churn Prediction Using Domain-Driven Feature Engineering, Resampling,
-					and CatBoost with Explainability Extensions
-				</h3>
-				<p class="mb-4 text-sm text-text-muted">
-					An end-to-end churn prediction pipeline on the IBM Telco Customer Churn dataset (7,043
-					samples, 26.54% churn): SMOTE for class imbalance, domain-specific engineered features,
-					and CatBoost/XGBoost tuned with Optuna. The best model reached a <span class="text-accent"
-						>0.937 ROC-AUC</span
-					>
-					and 0.863 F1-score. SHAP explains which features drive each prediction, DICE-ML generates counterfactual
-					"what would change the outcome" explanations for retention teams, and a fairness audit surfaced
-					a 22.55% bias toward senior citizens worth correcting for.
-				</p>
-				<div class="flex flex-wrap gap-3">
-					<Button variant="outline" size="sm" href={paperPdf} target="_blank" rel="noreferrer"
-						>Read the paper (PDF)</Button
-					>
-					<Button
-						variant="outline"
-						size="sm"
-						href="https://ieeexplore.ieee.org/document/11291801/"
-						target="_blank"
-						rel="noreferrer">View on IEEE Xplore ↗</Button
-					>
-				</div>
-			</div>
 		</div>
 	</section>
 

@@ -1,5 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
-import adapter from '@sveltejs/adapter-node';
+import adapterNode from '@sveltejs/adapter-node';
+import adapterVercel from '@sveltejs/adapter-vercel';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
@@ -13,8 +14,9 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 
-			// Railway (and any plain Node host) runs the app as a standalone Node server via `node build`.
-			adapter: adapter()
+			// Vercel sets VERCEL=1 during its build — use its serverless adapter there.
+			// Everywhere else (Railway, any plain Node host) runs as a standalone Node server via `node build`.
+			adapter: process.env.VERCEL ? adapterVercel() : adapterNode()
 		})
 	]
 });
