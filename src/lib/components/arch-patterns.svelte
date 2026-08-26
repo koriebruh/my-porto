@@ -54,7 +54,7 @@
 	</div>
 
 	{#if scene}
-		<div class="relative mb-4 h-1 bg-white/10">
+		<div class="relative mb-4 h-1 bg-text-primary/10">
 			<div
 				class="pattern-dot absolute top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-accent"
 			></div>

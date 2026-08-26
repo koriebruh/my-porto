@@ -5,9 +5,9 @@
 
 {#if src}
 	<div
-		class="inline-flex h-14 shrink-0 items-center justify-center rounded-none px-3 transition-transform hover:scale-105"
+		class="inline-flex h-14 shrink-0 items-center justify-center rounded-none border border-text-primary/10 px-3 transition-transform hover:scale-105"
 		class:bg-white={!onDark}
-		class:glass={onDark}
+		class:bg-[#0f172a]={onDark}
 	>
 		<img {src} alt="{name} logo" class="h-full max-h-9 w-auto object-contain" />
 	</div>

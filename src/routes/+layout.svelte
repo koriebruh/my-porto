@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import PlasmaField from '$lib/components/plasma-field.svelte';
 	import BackToTop from '$lib/components/back-to-top.svelte';
+	import ThemeToggle from '$lib/components/theme-toggle.svelte';
 
 	let { children } = $props();
 </script>
@@ -13,3 +14,4 @@
 	{@render children()}
 </div>
 <BackToTop />
+<ThemeToggle />

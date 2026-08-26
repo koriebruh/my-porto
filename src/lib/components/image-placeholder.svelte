@@ -30,7 +30,7 @@
 			<button
 				type="button"
 				onclick={() => (openIndex = i)}
-				class="group block h-40 cursor-zoom-in overflow-hidden rounded-none border border-white/15 sm:h-48"
+				class="group block h-40 cursor-zoom-in overflow-hidden rounded-none border border-text-primary/15 sm:h-48"
 			>
 				<img
 					{src}
@@ -47,7 +47,7 @@
 			<button
 				type="button"
 				onclick={() => (openIndex = i)}
-				class="group mb-3 block w-full cursor-zoom-in overflow-hidden rounded-none border border-white/15"
+				class="group mb-3 block w-full cursor-zoom-in overflow-hidden rounded-none border border-text-primary/15"
 			>
 				<img
 					{src}
@@ -62,7 +62,7 @@
 	<button
 		type="button"
 		onclick={() => (openIndex = 0)}
-		class="group block w-full cursor-zoom-in overflow-hidden rounded-none border border-white/15 {className}"
+		class="group block w-full cursor-zoom-in overflow-hidden rounded-none border border-text-primary/15 {className}"
 	>
 		<img
 			src={images[0]}
@@ -107,7 +107,7 @@
 		<img
 			src={images[openIndex]}
 			alt={label}
-			class="relative max-h-[90vh] max-w-[90vw] border border-white/15 object-contain"
+			class="relative max-h-[90vh] max-w-[90vw] border border-text-primary/15 object-contain"
 		/>
 		<button
 			type="button"

@@ -11,15 +11,15 @@
 		siSpringboot
 	} from 'simple-icons';
 
-	// Kafka's brand mark is near-black (#231F20) — unreadable on our dark bg, so it's shown in white instead.
-	const icons: Record<string, { path: string; hex: string }> = {
+	// Kafka's brand mark is near-black (#231F20) — swapped for white in dark mode.
+	const icons: Record<string, { path: string; hex: string; darkHex?: string }> = {
 		Go: siGo,
 		'Go Fiber': siGo,
 		Python: siPython,
 		PostgreSQL: siPostgresql,
 		MySQL: siMysql,
 		Redis: siRedis,
-		'Apache Kafka': { path: siApachekafka.path, hex: 'ffffff' },
+		'Apache Kafka': { path: siApachekafka.path, hex: siApachekafka.hex, darkHex: 'ffffff' },
 		Docker: siDocker,
 		Git: siGit,
 		'Spring Boot': siSpringboot,
@@ -32,10 +32,13 @@
 </script>
 
 <script lang="ts">
+	import { themeState } from '$lib/theme.svelte';
+
 	type Props = { name: string; class?: string };
 	let { name, class: className = '' }: Props = $props();
 
 	const icon = $derived(icons[name]);
+	const hex = $derived(themeState.current === 'dark' && icon?.darkHex ? icon.darkHex : icon?.hex);
 </script>
 
 {#if icon}
@@ -43,7 +46,7 @@
 		viewBox="0 0 24 24"
 		width="20"
 		height="20"
-		fill="#{icon.hex}"
+		fill="#{hex}"
 		class={className}
 		aria-hidden="true"
 	>

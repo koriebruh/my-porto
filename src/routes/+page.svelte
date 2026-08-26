@@ -136,7 +136,7 @@
 </script>
 
 <svelte:head>
-	<title>Muhammad Jamaludin Nur — Backend Engineer</title>
+	<title>JamalKya Nanami (菜々美) — Backend Engineer</title>
 	<meta
 		name="description"
 		content="Backend engineer building payment routing and microservices infrastructure — Go, Spring Boot, Kafka, PostgreSQL."
@@ -150,7 +150,7 @@
 			<div class="sm:order-1">
 				<div class="mb-8 flex items-center gap-2 font-mono text-[11px] text-text-muted uppercase">
 					<span class="h-1.5 w-1.5 rounded-full bg-accent shadow-(--shadow-glow)"></span>
-					available for backend roles · west jakarta, id (utc+7)
+					available for backend roles · vienna, at (utc+1)
 				</div>
 
 				<p
@@ -162,7 +162,7 @@
 				<h1
 					class="mb-6 font-display text-4xl leading-[1.05] font-bold text-text-primary sm:text-6xl"
 				>
-					Muhammad Jamaludin Nur
+					JamalKya Nanami (菜々美)
 				</h1>
 
 				<p class="mb-4 max-w-2xl text-lg text-text-primary sm:text-xl">
@@ -181,7 +181,7 @@
 
 			<img
 				src={mePhoto}
-				alt="Muhammad Jamaludin Nur"
+				alt="JamalKya Nanami (菜々美)"
 				class="h-56 w-44 object-cover sm:order-2 sm:h-64 sm:w-52"
 				style="object-position: 50% 22%; -webkit-mask-image: linear-gradient(to right, transparent, black 22%, black 78%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, black 22%, black 78%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); mask-composite: intersect;"
 			/>
@@ -189,7 +189,7 @@
 	</section>
 
 	<!-- EXPERIENCE -->
-	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
+	<section use:reveal class="reveal border-t border-text-primary/10 py-16 sm:py-20">
 		<h2 class="mb-10 font-mono text-xs text-text-faint uppercase">experience</h2>
 		<div class="relative space-y-12">
 			<div
@@ -205,7 +205,7 @@
 							<p class="font-mono text-xs text-text-faint">{job.period}</p>
 						</div>
 						<div>
-							<div class="mb-4 flex items-center gap-4 border-b border-white/10 pb-4">
+							<div class="mb-4 flex items-center gap-4 border-b border-text-primary/10 pb-4">
 								<LogoSlot name={job.org} src={job.logo} onDark={job.logoOnDark} />
 								<div class="min-w-0">
 									<h3 class="text-base font-semibold text-text-primary sm:text-lg">
@@ -238,7 +238,7 @@
 	</section>
 
 	<!-- EDUCATION & RESEARCH -->
-	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
+	<section use:reveal class="reveal border-t border-text-primary/10 py-16 sm:py-20">
 		<h2 class="mb-10 font-mono text-xs text-text-faint uppercase">education &amp; research</h2>
 		<div class="relative space-y-12">
 			<div
@@ -254,7 +254,7 @@
 					<p class="font-mono text-xs text-text-faint">2022 — Feb 2026</p>
 				</div>
 				<div>
-					<div class="mb-4 flex items-center gap-4 border-b border-white/10 pb-4">
+					<div class="mb-4 flex items-center gap-4 border-b border-text-primary/10 pb-4">
 						<LogoSlot name="UDINUS" src={udinusLogo} />
 						<div class="min-w-0">
 							<h3 class="text-base font-semibold text-text-primary sm:text-lg">
@@ -279,7 +279,7 @@
 					<p class="font-mono text-xs text-text-faint">December 2025</p>
 				</div>
 				<div>
-					<div class="mb-6 flex items-center gap-4 border-b border-white/10 pb-4">
+					<div class="mb-6 flex items-center gap-4 border-b border-text-primary/10 pb-4">
 						<LogoSlot name="ISEMANTIC 2025" src={isemanticLogo} onDark />
 						<div class="min-w-0">
 							<h3 class="text-base font-semibold text-text-primary sm:text-lg">Best Paper Award</h3>
@@ -324,7 +324,7 @@
 	</section>
 
 	<!-- FEATURED PROJECTS -->
-	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
+	<section use:reveal class="reveal border-t border-text-primary/10 py-16 sm:py-20">
 		<h2 class="mb-10 font-mono text-xs text-text-faint uppercase">featured projects</h2>
 		<div class="grid gap-6 sm:grid-cols-2">
 			{#each projects as project, i (project.name)}
@@ -333,10 +333,12 @@
 					href={project.href}
 					target="_blank"
 					rel="noreferrer"
-					class="reveal group flex flex-col border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-accent/40"
+					class="reveal group flex flex-col border border-text-primary/10 bg-text-primary/[0.02] p-6 transition-colors hover:border-accent/40"
 					style="transition-delay: {i * 80}ms"
 				>
-					<h3 class="mb-4 border-b border-white/10 pb-4 text-lg font-semibold text-text-primary">
+					<h3
+						class="mb-4 border-b border-text-primary/10 pb-4 text-lg font-semibold text-text-primary"
+					>
 						{project.name}
 					</h3>
 					<div class="mb-4 flex flex-wrap gap-1.5">
@@ -351,7 +353,7 @@
 						{/each}
 					</div>
 					<p
-						class="mb-4 rounded-none border-l-2 border-accent bg-white/5 px-3 py-2 text-sm text-text-primary italic"
+						class="mb-4 rounded-none border-l-2 border-accent bg-text-primary/5 px-3 py-2 text-sm text-text-primary italic"
 					>
 						"{project.quote}"
 					</p>
@@ -372,7 +374,7 @@
 	</section>
 
 	<!-- SKILLS -->
-	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
+	<section use:reveal class="reveal border-t border-text-primary/10 py-16 sm:py-20">
 		<h2 class="mb-10 font-mono text-xs text-text-faint uppercase">stack</h2>
 		<div class="grid gap-8 sm:grid-cols-2">
 			{#each skills as group (group.group)}
@@ -424,7 +426,7 @@
 	</section>
 
 	<!-- CONTACT / FOOTER -->
-	<section use:reveal class="reveal border-t border-white/10 py-16 sm:py-20">
+	<section use:reveal class="reveal border-t border-text-primary/10 py-16 sm:py-20">
 		<div class="mb-8 flex items-center gap-3">
 			<LottiePulse />
 			<p class="font-mono text-xs tracking-wide text-accent uppercase">available for new roles</p>
@@ -438,11 +440,11 @@
 			reach out directly.
 		</p>
 
-		<div class="flex flex-wrap items-center gap-3 border-t border-white/10 pt-6">
+		<div class="flex flex-wrap items-center gap-3 border-t border-text-primary/10 pt-6">
 			<a
 				href="mailto:mjamaludinnur927@gmail.com"
 				title="Email"
-				class="inline-flex h-12 w-12 items-center justify-center border border-white/10 transition-colors hover:border-accent/40"
+				class="inline-flex h-12 w-12 items-center justify-center border border-text-primary/10 transition-colors hover:border-accent/40"
 			>
 				<ContactIcon name="email" />
 			</a>
@@ -451,7 +453,7 @@
 				target="_blank"
 				rel="noreferrer"
 				title="WhatsApp"
-				class="inline-flex h-12 w-12 items-center justify-center border border-white/10 transition-colors hover:border-accent/40"
+				class="inline-flex h-12 w-12 items-center justify-center border border-text-primary/10 transition-colors hover:border-accent/40"
 			>
 				<ContactIcon name="whatsapp" />
 			</a>
@@ -460,7 +462,7 @@
 				target="_blank"
 				rel="noreferrer"
 				title="GitHub"
-				class="inline-flex h-12 w-12 items-center justify-center border border-white/10 transition-colors hover:border-accent/40"
+				class="inline-flex h-12 w-12 items-center justify-center border border-text-primary/10 transition-colors hover:border-accent/40"
 			>
 				<ContactIcon name="github" />
 			</a>
@@ -469,18 +471,16 @@
 				target="_blank"
 				rel="noreferrer"
 				title="LinkedIn"
-				class="inline-flex h-12 w-12 items-center justify-center border border-white/10 transition-colors hover:border-accent/40"
+				class="inline-flex h-12 w-12 items-center justify-center border border-text-primary/10 transition-colors hover:border-accent/40"
 			>
 				<ContactIcon name="linkedin" />
 			</a>
-			<Button href={cvPdf} download="Muhammad Jamaludin Nur - CV.pdf"
-				>Download portfolio (PDF)</Button
-			>
-			<p class="ml-auto font-mono text-xs text-text-faint">west jakarta, indonesia — utc+7</p>
+			<Button href={cvPdf} download="JamalKya Nanami - CV.pdf">Download portfolio (PDF)</Button>
+			<p class="ml-auto font-mono text-xs text-text-faint">vienna, austria — utc+1</p>
 		</div>
 
 		<p class="mt-6 font-mono text-xs text-text-faint">
-			© {new Date().getFullYear()} Muhammad Jamaludin Nur. All rights reserved.
+			© {new Date().getFullYear()} JamalKya Nanami (菜々美). All rights reserved.
 		</p>
 	</section>
 </main>

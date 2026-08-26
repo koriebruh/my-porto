@@ -14,11 +14,13 @@
 		precision mediump float;
 		uniform float uTime;
 		uniform vec2 uResolution;
+		uniform vec3 uBase;
+		uniform vec3 uColor1;
+		uniform vec3 uColor2;
 
-		vec3 blob(vec2 uv, vec2 center, vec3 color, float radius) {
+		float glow(vec2 uv, vec2 center, float radius) {
 			float d = length(uv - center);
-			float glow = radius / (d * d + 0.01);
-			return color * glow * 0.06;
+			return min(radius / (d * d + 0.02), 1.0);
 		}
 
 		void main() {
@@ -29,16 +31,18 @@
 			vec2 c1 = vec2(0.26 * aspect + 0.18 * sin(uTime * 0.15), 0.28 + 0.14 * cos(uTime * 0.12));
 			vec2 c2 = vec2(0.76 * aspect + 0.2 * cos(uTime * 0.11), 0.68 + 0.16 * sin(uTime * 0.09));
 
-			vec3 accent = vec3(0.765, 0.961, 0.235);
+			vec3 col = uBase;
+			col = mix(col, uColor1, glow(uv, c1, 0.05) * 0.4);
+			col = mix(col, uColor2, glow(uv, c2, 0.04) * 0.35);
 
-			vec3 col = vec3(0.016, 0.018, 0.02);
-			col += blob(uv, c1, accent, 0.07) * 0.7;
-			col += blob(uv, c2, accent, 0.05) * 0.4;
-
-			col = min(col, vec3(0.42));
 			gl_FragColor = vec4(col, 1.0);
 		}
 	`;
+
+	const THEME_COLORS = {
+		light: { base: [1, 1, 1], c1: [0.231, 0.51, 0.965], c2: [0.976, 0.451, 0.086] },
+		dark: { base: [0.043, 0.055, 0.078], c1: [0.376, 0.647, 0.98], c2: [0.984, 0.573, 0.235] }
+	};
 
 	onMount(() => {
 		const gl = canvas.getContext('webgl');
@@ -66,6 +70,25 @@
 
 		const uTime = gl.getUniformLocation(program, 'uTime');
 		const uResolution = gl.getUniformLocation(program, 'uResolution');
+		const uBase = gl.getUniformLocation(program, 'uBase');
+		const uColor1 = gl.getUniformLocation(program, 'uColor1');
+		const uColor2 = gl.getUniformLocation(program, 'uColor2');
+
+		function setThemeUniforms() {
+			const theme =
+				document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+			const { base, c1, c2 } = THEME_COLORS[theme];
+			gl!.uniform3f(uBase, base[0], base[1], base[2]);
+			gl!.uniform3f(uColor1, c1[0], c1[1], c1[2]);
+			gl!.uniform3f(uColor2, c2[0], c2[1], c2[2]);
+		}
+		setThemeUniforms();
+
+		function onThemeChange() {
+			setThemeUniforms();
+			if (reduced) gl!.drawArrays(gl!.TRIANGLES, 0, 3);
+		}
+		window.addEventListener('themechange', onThemeChange);
 
 		function resize() {
 			canvas.width = window.innerWidth * Math.min(devicePixelRatio, 1.5);
@@ -89,6 +112,7 @@
 		return () => {
 			cancelAnimationFrame(frameId);
 			window.removeEventListener('resize', resize);
+			window.removeEventListener('themechange', onThemeChange);
 		};
 	});
 </script>
