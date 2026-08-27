@@ -160,10 +160,14 @@
 				</p>
 
 				<h1
-					class="mb-6 font-display text-4xl leading-[1.05] font-bold text-text-primary sm:text-6xl"
+					class="mb-1 font-display text-4xl leading-[1.05] font-bold text-text-primary sm:text-6xl"
 				>
-					JamalKya Nanami (菜々美)
+					JamalKya Nanami
 				</h1>
+				<p class="mb-6 flex items-center gap-2.5">
+					<span class="font-mono text-xs tracking-wide text-text-faint uppercase">aka</span>
+					<span class="font-display text-2xl text-accent sm:text-3xl">菜々美</span>
+				</p>
 
 				<p class="mb-4 max-w-2xl text-lg text-text-primary sm:text-xl">
 					I build the routing layer between merchants and payment providers — the layer that isn't
