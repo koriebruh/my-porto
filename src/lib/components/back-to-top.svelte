@@ -17,7 +17,7 @@
 		type="button"
 		onclick={scrollTop}
 		aria-label="Back to top"
-		class="glass fixed right-5 bottom-5 z-40 flex h-11 w-11 items-center justify-center rounded-none text-text-primary transition-colors hover:border-accent/50 hover:text-accent sm:right-8 sm:bottom-8"
+		class="glass fixed right-5 bottom-5 z-40 flex h-11 w-11 items-center justify-center rounded-lg text-text-primary transition-colors hover:border-accent/50 hover:text-accent sm:right-8 sm:bottom-8"
 	>
 		<svg
 			viewBox="0 0 24 24"

@@ -21,3 +21,9 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Local agent/tool state
+.claude-flow
+.swarm
+.playwright-mcp
+ruvector.db

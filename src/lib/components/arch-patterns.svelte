@@ -36,14 +36,14 @@
 	const scene = $derived(index === null ? null : scenes[index]);
 </script>
 
-<div class="glass col-span-full rounded-none p-5 sm:p-6">
+<div class="glass col-span-full rounded-lg p-5 sm:p-6">
 	<p class="mb-4 font-mono text-xs text-text-faint uppercase">pick a pattern</p>
 
 	<div class="mb-5 flex flex-wrap gap-2">
 		{#each scenes as s, i (s.key)}
 			<button
 				onclick={() => (index = i)}
-				class="glass rounded-none px-3 py-1.5 font-mono text-xs uppercase transition-colors"
+				class="glass rounded-lg px-3 py-1.5 font-mono text-xs uppercase transition-colors"
 				class:border-accent={index === i}
 				class:text-accent={index === i}
 				class:text-text-muted={index !== i}
@@ -63,7 +63,7 @@
 		<div class="flex justify-between gap-2">
 			{#each scene.steps as step, i (step)}
 				<div
-					class="glass flex-1 rounded-none px-2 py-2 text-center font-mono text-[10px] text-text-muted uppercase sm:text-[11px]"
+					class="glass flex-1 rounded-lg px-2 py-2 text-center font-mono text-[10px] text-text-muted uppercase sm:text-[11px]"
 					class:border-fault!={scene.failAt === i ||
 						(scene.parkLast && i === scene.steps.length - 1)}
 					class:text-fault={scene.failAt === i}
@@ -81,6 +81,18 @@
 	{:else}
 		<p class="text-sm text-text-faint">Pick one above to see it play out.</p>
 	{/if}
+
+	<div class="mt-6 border-t border-dashed border-text-primary/15 pt-4">
+		<p class="mb-2 font-mono text-[10px] text-text-faint uppercase">learning next</p>
+		<div class="flex flex-wrap gap-2">
+			{#each ['CQRS', 'Event Sourcing', 'Circuit Breaker'] as next (next)}
+				<span
+					class="rounded-lg border border-dashed border-text-primary/20 px-2.5 py-1 font-mono text-[10px] text-text-faint"
+					>{next}</span
+				>
+			{/each}
+		</div>
+	</div>
 </div>
 
 <style>

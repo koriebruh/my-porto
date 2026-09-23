@@ -6,7 +6,7 @@
 	type="button"
 	onclick={toggleTheme}
 	aria-label="Toggle dark mode"
-	class="glass fixed bottom-5 left-5 z-40 flex h-11 w-11 items-center justify-center rounded-none text-text-primary transition-colors hover:border-accent/50 hover:text-accent sm:bottom-8 sm:left-8"
+	class="glass fixed bottom-5 left-5 z-40 flex h-11 w-11 items-center justify-center rounded-lg text-text-primary transition-colors hover:border-accent/50 hover:text-accent sm:bottom-8 sm:left-8"
 >
 	{#if themeState.current === 'dark'}
 		<svg

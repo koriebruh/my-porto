@@ -5,7 +5,7 @@
 
 {#if src}
 	<div
-		class="inline-flex h-14 shrink-0 items-center justify-center rounded-none border border-text-primary/10 px-3 transition-transform hover:scale-105"
+		class="inline-flex h-14 shrink-0 items-center justify-center rounded-lg border border-text-primary/10 px-3 transition-transform hover:scale-105"
 		class:bg-white={!onDark}
 		class:bg-[#0f172a]={onDark}
 	>
@@ -13,7 +13,7 @@
 	</div>
 {:else}
 	<div
-		class="glass flex h-14 w-14 shrink-0 items-center justify-center rounded-none border-dashed! font-display text-xs font-semibold text-text-faint"
+		class="glass flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border-dashed! font-display text-xs font-semibold text-text-faint"
 		title="logo placeholder — {name}"
 	>
 		{name.charAt(0)}

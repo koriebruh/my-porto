@@ -30,7 +30,7 @@
 			<button
 				type="button"
 				onclick={() => (openIndex = i)}
-				class="group block h-40 cursor-zoom-in overflow-hidden rounded-none border border-text-primary/15 sm:h-48"
+				class="group block h-40 cursor-zoom-in overflow-hidden rounded-lg border border-text-primary/15 sm:h-48"
 			>
 				<img
 					{src}
@@ -47,7 +47,7 @@
 			<button
 				type="button"
 				onclick={() => (openIndex = i)}
-				class="group mb-3 block w-full cursor-zoom-in overflow-hidden rounded-none border border-text-primary/15"
+				class="group mb-3 block w-full cursor-zoom-in overflow-hidden rounded-lg border border-text-primary/15"
 			>
 				<img
 					{src}
@@ -62,7 +62,7 @@
 	<button
 		type="button"
 		onclick={() => (openIndex = 0)}
-		class="group block w-full cursor-zoom-in overflow-hidden rounded-none border border-text-primary/15 {className}"
+		class="group block w-full cursor-zoom-in overflow-hidden rounded-lg border border-text-primary/15 {className}"
 	>
 		<img
 			src={images[0]}
@@ -73,7 +73,7 @@
 	</button>
 {:else}
 	<div
-		class="glass flex {aspect} w-full flex-col items-center justify-center gap-2 rounded-none border-dashed! text-center {className}"
+		class="glass flex {aspect} w-full flex-col items-center justify-center gap-2 rounded-lg border-dashed! text-center {className}"
 	>
 		<svg
 			viewBox="0 0 24 24"
@@ -113,7 +113,7 @@
 			type="button"
 			aria-label="Close"
 			onclick={() => (openIndex = null)}
-			class="glass absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-none text-text-primary sm:top-6 sm:right-6"
+			class="glass absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-lg text-text-primary sm:top-6 sm:right-6"
 		>
 			✕
 		</button>
