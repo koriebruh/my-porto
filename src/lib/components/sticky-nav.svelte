@@ -2,24 +2,24 @@
 	import { onMount } from 'svelte';
 
 	const links = [
-		{ href: '#experience', label: 'Experience' },
-		{ href: '#education', label: 'Education' },
-		{ href: '#projects', label: 'Projects' },
-		{ href: '#stack', label: 'Stack' },
-		{ href: '#contact', label: 'Contact' }
+		{ href: '/#experience', label: 'Experience' },
+		{ href: '/#education', label: 'Education' },
+		{ href: '/#projects', label: 'Projects' },
+		{ href: '/#stack', label: 'Stack' },
+		{ href: '/#contact', label: 'Contact' }
 	];
 
 	let active = $state('');
 
 	onMount(() => {
 		const sections = links
-			.map((l) => document.querySelector(l.href))
-			.filter((el): el is Element => !!el);
+			.map((l) => document.getElementById(l.href.slice(2)))
+			.filter((el): el is HTMLElement => !!el);
 
 		const observer = new IntersectionObserver(
 			(entries) => {
 				for (const entry of entries) {
-					if (entry.isIntersecting) active = `#${entry.target.id}`;
+					if (entry.isIntersecting) active = `/#${entry.target.id}`;
 				}
 			},
 			{ rootMargin: '-40% 0px -50% 0px' }
@@ -36,11 +36,11 @@
 	<div
 		class="sticker-sm mx-auto flex max-w-3xl items-center justify-between gap-4 rounded-full bg-void py-2 pr-2 pl-5"
 	>
-		<a href="#top" class="font-display text-lg font-bold whitespace-nowrap text-text-primary">
+		<a href="/#top" class="font-display text-lg font-bold whitespace-nowrap text-text-primary">
 			JamalKya <span lang="ja" class="text-accent">菜々美</span>
 		</a>
 		<a
-			href="#contact"
+			href="/#contact"
 			class="rounded-full bg-sun px-4 py-1.5 font-display text-sm font-semibold text-[#1f1d47] sm:hidden"
 			>Say hi</a
 		>

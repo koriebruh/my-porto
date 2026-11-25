@@ -6,6 +6,7 @@
 	import TechIcon, { hasTechIcon } from '$lib/components/tech-icon.svelte';
 	import Doodle from '$lib/components/doodle.svelte';
 	import ProjectModal from '$lib/components/project-modal.svelte';
+	import ScrollRail from '$lib/components/scroll-rail.svelte';
 
 	import mePhoto from '$lib/assets/about/me-web.jpg';
 	import devOnCloud from '$lib/assets/illustrations/dev-on-cloud.webp';
@@ -276,6 +277,18 @@
 		content="Payment routing, microservices, and a Best Paper Award. Come say hi."
 	/>
 	<meta name="theme-color" content="#a9dcf7" />
+	<link rel="canonical" href="https://jamalkya.lol/" />
+	<meta property="og:url" content="https://jamalkya.lol/" />
+	<meta property="og:image" content="https://jamalkya.lol/og.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta
+		property="og:image:alt"
+		content="Doodle of JamalKya waving from a cloud with a laptop, next to the name JamalKya Nanami"
+	/>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="JamalKya Nanami (菜々美), backend engineer" />
+	<meta name="twitter:image" content="https://jamalkya.lol/og.jpg" />
 </svelte:head>
 
 {#snippet heading(
@@ -482,7 +495,7 @@
 
 	<div class="relative mx-auto max-w-6xl px-5 sm:px-8">
 		<!-- EXPERIENCE -->
-		<section id="experience" class="relative scroll-mt-24 py-24 sm:py-28">
+		<section id="experience" class="relative py-24 sm:py-28">
 			<Doodle
 				name="star"
 				class="twinkle absolute top-[30%] -left-24 hidden h-9 w-9 xl:block"
@@ -594,7 +607,7 @@
 		</section>
 
 		<!-- EDUCATION & RESEARCH -->
-		<section id="education" class="relative scroll-mt-24 pb-24 sm:pb-28">
+		<section id="education" class="relative pb-24 sm:pb-28">
 			<Doodle
 				name="sparkle"
 				class="twinkle absolute top-[40%] -left-20 hidden h-9 w-9 xl:block"
@@ -703,7 +716,7 @@
 		</section>
 
 		<!-- PROJECTS -->
-		<section id="projects" class="relative scroll-mt-24 pb-24 sm:pb-28">
+		<section id="projects" class="relative pb-24 sm:pb-28">
 			<Doodle
 				name="star"
 				class="twinkle absolute top-[38%] -right-20 hidden h-9 w-9 xl:block"
@@ -802,7 +815,7 @@
 		</section>
 
 		<!-- STACK -->
-		<section id="stack" class="relative scroll-mt-24 pb-24 sm:pb-28">
+		<section id="stack" class="relative pb-24 sm:pb-28">
 			<Doodle
 				name="heart"
 				class="twinkle absolute top-[45%] -left-20 hidden h-8 w-8 xl:block"
@@ -901,7 +914,7 @@
 		</section>
 
 		<!-- CONTACT -->
-		<section id="contact" class="relative scroll-mt-24 pb-16">
+		<section id="contact" class="relative pb-16">
 			<div
 				use:pop
 				class="pop sticker relative grid items-center gap-6 rounded-[2.5rem] bg-sun p-8 text-[#1f1d47] sm:p-14 lg:grid-cols-[1.3fr_1fr]"
@@ -961,6 +974,7 @@
 	</div>
 </main>
 
+<ScrollRail />
 <ProjectModal project={openProject} onclose={() => (openProject = null)} />
 
 <style>
