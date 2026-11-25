@@ -5,17 +5,16 @@
 
 {#if src}
 	<div
-		class="inline-flex h-14 shrink-0 items-center justify-center rounded-lg border border-text-primary/10 px-3 transition-transform hover:scale-105"
+		class="sticker-sm inline-flex h-14 shrink-0 items-center justify-center rounded-2xl px-3"
 		class:bg-white={!onDark}
-		class:bg-[#0f172a]={onDark}
+		class:bg-[#17202a]={onDark}
 	>
 		<img {src} alt="{name} logo" class="h-full max-h-9 w-auto object-contain" />
 	</div>
 {:else}
 	<div
-		class="glass flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border-dashed! font-display text-xs font-semibold text-text-faint"
-		title="logo placeholder — {name}"
+		class="sticker-sm inline-flex h-14 shrink-0 items-center rounded-2xl bg-sky px-4 font-display text-lg font-bold text-[#1f1d47]"
 	>
-		{name.charAt(0)}
+		{name}
 	</div>
 {/if}

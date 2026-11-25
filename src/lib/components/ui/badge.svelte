@@ -2,12 +2,12 @@
 	import { cva, type VariantProps } from 'class-variance-authority';
 
 	export const badgeVariants = cva(
-		'inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 font-mono text-[11px] font-medium',
+		'inline-flex items-center gap-1.5 rounded-full border-2 border-text-primary bg-[#fff] px-2.5 py-1 text-xs font-bold',
 		{
 			variants: {
 				variant: {
-					default: 'glass text-text-primary',
-					up: 'glass text-text-muted',
+					default: 'text-[#1f1d47]',
+					up: 'text-[#1f1d47]',
 					down: 'border border-fault/50 text-fault',
 					paper: 'bg-accent text-void'
 				}

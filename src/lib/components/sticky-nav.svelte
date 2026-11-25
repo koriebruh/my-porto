@@ -9,16 +9,9 @@
 		{ href: '#contact', label: 'Contact' }
 	];
 
-	let visible = $state(false);
 	let active = $state('');
 
 	onMount(() => {
-		const onScroll = () => {
-			visible = window.scrollY > window.innerHeight * 0.55;
-		};
-		onScroll();
-		window.addEventListener('scroll', onScroll, { passive: true });
-
 		const sections = links
 			.map((l) => document.querySelector(l.href))
 			.filter((el): el is Element => !!el);
@@ -34,33 +27,32 @@
 		sections.forEach((s) => observer.observe(s));
 
 		return () => {
-			window.removeEventListener('scroll', onScroll);
 			observer.disconnect();
 		};
 	});
 </script>
 
-<nav
-	aria-hidden={!visible}
-	class="nav-blur fixed inset-x-0 top-0 z-30 border-b transition-all duration-300"
-	class:opacity-0={!visible}
-	class:-translate-y-full={!visible}
-	class:pointer-events-none={!visible}
-	style="background: color-mix(in srgb, var(--color-void) 78%, transparent); border-color: var(--color-border-glass);"
->
-	<div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
-		<a href="#top" tabindex={visible ? 0 : -1} class="font-display text-sm font-bold text-text-primary">
-			JK <span class="text-accent">菜々美</span>
+<nav class="fixed inset-x-0 top-4 z-30 px-4">
+	<div
+		class="sticker-sm mx-auto flex max-w-3xl items-center justify-between gap-4 rounded-full bg-void py-2 pr-2 pl-5"
+	>
+		<a href="#top" class="font-display text-lg font-bold whitespace-nowrap text-text-primary">
+			JamalKya <span lang="ja" class="text-accent">菜々美</span>
 		</a>
-		<ul class="hidden gap-6 sm:flex">
+		<a
+			href="#contact"
+			class="rounded-full bg-sun px-4 py-1.5 font-display text-sm font-semibold text-[#1f1d47] sm:hidden"
+			>Say hi</a
+		>
+		<ul class="hidden gap-1 sm:flex">
 			{#each links as link (link.href)}
 				<li>
 					<a
 						href={link.href}
-						tabindex={visible ? 0 : -1}
 						aria-current={active === link.href ? 'location' : undefined}
-						class="font-mono text-[11px] uppercase tracking-wide text-text-muted transition-colors hover:text-accent"
-						class:text-accent={active === link.href}
+						class="block rounded-full px-3 py-1.5 font-display text-sm font-semibold text-text-primary transition-colors hover:bg-sky"
+						class:bg-sun={active === link.href}
+						class:text-[#1f1d47]={active === link.href}
 					>
 						{link.label}
 					</a>

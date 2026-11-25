@@ -49,7 +49,7 @@
 {#if project}
 	<div
 		bind:this={backdrop}
-		class="fixed inset-0 z-50 flex items-center justify-center bg-void/70 p-5 backdrop-blur-sm"
+		class="fixed inset-0 z-50 flex items-center justify-center bg-text-primary/40 p-5"
 	>
 		<button
 			type="button"
@@ -62,7 +62,7 @@
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="project-modal-title"
-			class="glass relative max-h-[85vh] w-full max-w-xl overflow-y-auto rounded-lg p-6 sm:p-8"
+			class="sticker relative max-h-[85vh] w-full max-w-xl overflow-y-auto rounded-3xl bg-void p-6 sm:p-8"
 		>
 			<div class="mb-6 flex items-start justify-between gap-4">
 				<h3 id="project-modal-title" class="font-display text-2xl font-bold text-text-primary">
@@ -73,7 +73,7 @@
 					type="button"
 					onclick={onclose}
 					aria-label="Close"
-					class="glass flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-text-muted transition-colors hover:text-accent"
+					class="sticker-sm flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-void text-text-primary hover:bg-sun"
 				>
 					<svg
 						viewBox="0 0 24 24"
@@ -91,7 +91,7 @@
 			<div class="mb-6 flex flex-wrap gap-1.5">
 				{#each project.stack as tech (tech)}
 					{#if hasTechIcon(tech)}
-						<Badge variant="up" class="p-1.5" title={tech}
+						<Badge variant="up" class="p-1.5" data-tip={tech}
 							><TechIcon name={tech} /><span class="sr-only">{tech}</span></Badge
 						>
 					{:else}
@@ -100,10 +100,8 @@
 				{/each}
 			</div>
 
-			<p
-				class="mb-6 rounded-lg border-l-2 border-accent bg-text-primary/5 px-4 py-3 text-base text-text-primary italic"
-			>
-				"{project.quote}"
+			<p class="mb-6 rounded-2xl bg-pink-soft p-4 text-base leading-relaxed text-text-primary">
+				{project.quote}
 			</p>
 
 			<ul class="mb-8 space-y-2">
@@ -116,15 +114,14 @@
 			</ul>
 
 			<div class="flex flex-wrap gap-3">
-				<Button href={project.href} target="_blank" rel="noreferrer" size="sm">View source ↗</Button
-				>
+				<Button href={project.href} target="_blank" rel="noreferrer" size="sm">View source</Button>
 				{#if project.docsHref}
 					<Button
 						variant="outline"
 						href={project.docsHref}
 						target="_blank"
 						rel="noreferrer"
-						size="sm">Docs ↗</Button
+						size="sm">Docs</Button
 					>
 				{/if}
 			</div>
